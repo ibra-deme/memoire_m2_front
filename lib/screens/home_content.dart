@@ -225,6 +225,7 @@
 //   }
 // }
 import 'package:flutter/material.dart';
+import 'package:my_app/screens/chatbot_screen.dart';
 // ignore: unused_import
 import 'package:url_launcher/url_launcher.dart';
 import "universities_page.dart";
@@ -289,198 +290,6 @@ class _HomeContentState extends State<HomeContent> {
     },
   ];
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return SingleChildScrollView(
-//       padding: const EdgeInsets.all(16.0),
-//       child: Column(
-//         crossAxisAlignment: CrossAxisAlignment.center,
-//         children: [
-//           // Bienvenue Section
-//           Text(
-//             'Bienvenue !',
-//             style: TextStyle(
-//               fontSize: 28,
-//               fontWeight: FontWeight.bold,
-//               color: Colors.teal[800],
-//             ),
-//           ),
-//           SizedBox(height: 10),
-//           Text(
-//             'Découvrez les meilleures opportunités d\'études au Sénégal.',
-//             textAlign: TextAlign.center,
-//             style: TextStyle(fontSize: 16, color: Colors.grey[700]),
-//           ),
-//           SizedBox(height: 30),
-
-//           // Sections avant le bouton
-//           _buildSection(
-//             icon: Icons.school,
-//             title: 'Top Universités',
-//             description:
-//                 'Trouvez les meilleures universités du Sénégal, de l\'UCAD à l\'UGB, offrant des formations variées dans plusieurs disciplines.',
-//           ),
-//           SizedBox(height: 20),
-//           _buildSection(
-//             icon: Icons.lightbulb_outline,
-//             title: 'Conseils d\'Orientation',
-//             description:
-//                 'Profitez de nos guides pour choisir la bonne filière et réussir votre parcours académique.',
-//           ),
-//           SizedBox(height: 20),
-//           _buildSection(
-//             icon: Icons.star_outline,
-//             title: 'Programmes Spéciaux',
-//             description:
-//                 'Découvrez des programmes de bourses et des opportunités uniques pour les étudiants talentueux.',
-//           ),
-//           SizedBox(height: 40),
-//           _buildSection(
-//             icon: Icons.star_outline,
-//             title: 'Universités Privées',
-//             description: 'Découvrez les universités privées du senegal.',
-//           ),
-//           SizedBox(height: 40),
-
-//           // Bouton Explorer Maintenant
-//           ElevatedButton.icon(
-//             onPressed: () {
-//               setState(() {
-//                 showUniversities = true;
-//               });
-//             },
-//             icon: Icon(Icons.explore, color: Colors.white),
-//             label: Text('Explorer Maintenant'),
-//             style: ElevatedButton.styleFrom(
-//               backgroundColor: Colors.teal[700],
-//               padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-//               shape: RoundedRectangleBorder(
-//                 borderRadius: BorderRadius.circular(20),
-//               ),
-//               textStyle: TextStyle(
-//                 fontSize: 16,
-//                 fontWeight: FontWeight.bold,
-//               ),
-//             ),
-//           ),
-//           SizedBox(height: 30),
-
-//           // Liste des universités publiques
-//           if (showUniversities) ...[
-//             Text(
-//               'Liste des universités publiques',
-//               style: TextStyle(
-//                 fontSize: 22,
-//                 fontWeight: FontWeight.bold,
-//                 color: Colors.teal[800],
-//               ),
-//             ),
-//             SizedBox(height: 20),
-//             ...universities.map((university) {
-//               return _buildUniversityCard(university);
-//             }).toList(),
-//           ],
-//         ],
-//       ),
-//     );
-//   }
-
-//   // Fonction pour construire une section
-//   Widget _buildSection({
-//     required IconData icon,
-//     required String title,
-//     required String description,
-//   }) {
-//     return Container(
-//       decoration: BoxDecoration(
-//         color: Colors.teal[50],
-//         borderRadius: BorderRadius.circular(15),
-//         boxShadow: [
-//           BoxShadow(
-//             color: Colors.grey.withOpacity(0.3),
-//             blurRadius: 8,
-//             offset: Offset(0, 4),
-//           ),
-//         ],
-//       ),
-//       padding: const EdgeInsets.all(16.0),
-//       child: Row(
-//         crossAxisAlignment: CrossAxisAlignment.start,
-//         children: [
-//           Icon(icon, size: 40, color: Colors.teal[600]),
-//           SizedBox(width: 20),
-//           Expanded(
-//             child: Column(
-//               crossAxisAlignment: CrossAxisAlignment.start,
-//               children: [
-//                 Text(
-//                   title,
-//                   style: TextStyle(
-//                     fontSize: 20,
-//                     fontWeight: FontWeight.bold,
-//                     color: Colors.teal[800],
-//                   ),
-//                 ),
-//                 SizedBox(height: 5),
-//                 Text(
-//                   description,
-//                   style: TextStyle(fontSize: 16, color: Colors.grey[700]),
-//                 ),
-//               ],
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-
-//   // Fonction pour créer une carte pour chaque université
-//   Widget _buildUniversityCard(Map<String, String> university) {
-//     return Card(
-//       margin: EdgeInsets.symmetric(vertical: 10),
-//       elevation: 10,
-//       shape: RoundedRectangleBorder(
-//         borderRadius: BorderRadius.circular(15),
-//       ),
-//       child: InkWell(
-//         onTap: () => _launchURL(university['url']!),
-//         child: Row(
-//           children: [
-//             Padding(
-//               padding: const EdgeInsets.all(8.0),
-//               child: CircleAvatar(
-//                 backgroundImage: NetworkImage(university['logo']!),
-//                 radius: 30,
-//               ),
-//             ),
-//             Expanded(
-//               child: Padding(
-//                 padding: const EdgeInsets.all(16.0),
-//                 child: Text(
-//                   university['name']!,
-//                   style: TextStyle(
-//                     fontSize: 18,
-//                     fontWeight: FontWeight.bold,
-//                     color: Colors.teal[800],
-//                   ),
-//                 ),
-//               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-
-//   // Fonction pour lancer l'URL
-//   Future<void> _launchURL(String url) async {
-//     if (await canLaunch(url)) {
-//       await launch(url);
-//     } else {
-//       throw 'Impossible de lancer l\'URL';
-//     }
-//   }
-// }
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -528,6 +337,15 @@ class _HomeContentState extends State<HomeContent> {
             title: 'Conseils d\'Orientation',
             description:
                 'Profitez de nos guides pour choisir la bonne filière et réussir votre parcours académique.',
+            onTap: () {
+              // Naviguer vers la nouvelle page
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ChatbotScreen(),
+                ),
+              );
+            },
           ),
           SizedBox(height: 20),
           _buildSection(
@@ -535,12 +353,20 @@ class _HomeContentState extends State<HomeContent> {
             title: 'Programmes Spéciaux',
             description:
                 'Découvrez des programmes de bourses et des opportunités uniques pour les étudiants talentueux.',
+            onTap: () {
+              launchUrl(Uri.parse(
+                  'https://mesr.gouv.sn/direction-des-bourses-mesri/'));
+            },
           ),
+
           SizedBox(height: 40),
           _buildSection(
-            icon: Icons.star_outline,
+            icon: Icons.star,
             title: 'Universités Privées',
-            description: 'Découvrez les universités privées du Sénégal.',
+            description: 'Cliquez pour voir si votre diplome est reconnue.',
+            onTap: () {
+              launchUrl(Uri.parse('https://anaqsup.sn/acreditations/'));
+            },
           ),
           SizedBox(height: 40),
 

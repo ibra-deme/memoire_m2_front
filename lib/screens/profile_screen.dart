@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_app/screens/chatbot_screen.dart';
 
-class ProfileScreen extends StatelessWidget {
-  // Informations de l'utilisateur (vous pouvez les remplacer par des données dynamiques)
-  final String firstName = 'Ibra';
-  final String lastName = 'Deme';
-  final String email = 'diengdeguene87@gmail.com';
-
+class SenEduBotInfoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,16 +39,16 @@ class ProfileScreen extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    // Icône de profil
+                    // Icône de chatbot
                     Icon(
-                      Icons.account_circle,
+                      Icons.person,
                       size: 100,
                       color: Colors.teal[700],
                     ),
                     SizedBox(height: 20),
-                    // Texte principal
+                    // Titre principal
                     Text(
-                      'Profil de l\'utilisateur',
+                      'Sen_edu_bot',
                       style: GoogleFonts.poppins(
                         fontSize: 26,
                         fontWeight: FontWeight.bold,
@@ -61,23 +57,41 @@ class ProfileScreen extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                     SizedBox(height: 20),
-                    // Affichage des informations de l'utilisateur
-                    _buildInfoRow('Prénom', firstName),
+                    // Description du chatbot
+                    Text(
+                      'Sen_edu_bot est un chatbot intelligent conçu pour aider les nouveaux bacheliers et étudiants sénégalais à naviguer dans le système éducatif.',
+                      style: GoogleFonts.poppins(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.black87,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(height: 20),
+                    // Explication des fonctionnalités du chatbot
+                    _buildFeatureCard('📚 Orientation académique',
+                        'Sen_edu_bot fournit des informations sur les différentes filières universitaires et les écoles supérieures au Sénégal.'),
                     SizedBox(height: 16),
-                    _buildInfoRow('Nom', lastName),
+                    _buildFeatureCard('💡 Aide à la procédure d\'inscription',
+                        'Le chatbot guide les étudiants dans la procédure d\'inscription dans les universités et écoles du Sénégal.'),
                     SizedBox(height: 16),
-                    _buildInfoRow('Email', email),
+                    _buildFeatureCard('🗓️ Calendrier académique',
+                        'Sen_edu_bot informe les étudiants sur les dates importantes du calendrier académique sénégalais.'),
                     SizedBox(height: 16),
-                    // Ajout d'autres informations si nécessaire
-                    _buildInfoRow('Mot de passe', '********'),
+                    _buildFeatureCard('📍 Informations ',
+                        'Il aide également les étudiants à trouver des informations  sur les établissements d\'enseignement supérieur.'),
                     SizedBox(height: 30),
-                    // Bouton de déconnexion ou autre action
+                    // Bouton pour démarrer l\'interaction avec le chatbot
                     ElevatedButton(
                       onPressed: () {
-                        // Logique de déconnexion
-                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ChatbotScreen(),
+                          ),
+                        );
                       },
-                      child: Text('Se déconnecter'),
+                      child: Text('Commencer à discuter'),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.teal[700],
                         foregroundColor: Colors.white,
@@ -103,12 +117,12 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  // Widget pour afficher les informations sous forme de ligne stylisée
-  Widget _buildInfoRow(String label, String value) {
+  // Widget pour afficher les fonctionnalités du chatbot sous forme de carte
+  Widget _buildFeatureCard(String title, String description) {
     return Container(
-      padding: EdgeInsets.all(12.0),
+      padding: EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        color: Colors.grey.shade200,
+        color: Colors.teal.shade50,
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
@@ -118,25 +132,24 @@ class ProfileScreen extends StatelessWidget {
           ),
         ],
       ),
-      child: Row(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            '$label : ',
+            title,
             style: GoogleFonts.poppins(
               fontSize: 18,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.bold,
               color: Colors.teal[700],
             ),
           ),
-          Expanded(
-            child: Text(
-              value,
-              style: GoogleFonts.poppins(
-                fontSize: 18,
-                fontWeight: FontWeight.w400,
-                color: Colors.black87,
-              ),
-              textAlign: TextAlign.right,
+          SizedBox(height: 8),
+          Text(
+            description,
+            style: GoogleFonts.poppins(
+              fontSize: 16,
+              fontWeight: FontWeight.w400,
+              color: Colors.black87,
             ),
           ),
         ],

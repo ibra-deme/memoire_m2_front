@@ -211,19 +211,23 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Edu_bot'),
+        title: Text('Sen_edu_bot'),
         backgroundColor: Colors.teal,
       ),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Colors.teal.shade300,
-              Colors.blue.shade300,
+              const Color.fromARGB(255, 10, 15, 14),
+              const Color.fromARGB(255, 34, 45, 53),
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
+          // image: DecorationImage(
+          //   image: AssetImage('assets/backgroundimage.jpg'),
+          //   fit: BoxFit.cover, // Permet de couvrir le conteneur avec l'image
+          // ),
         ),
         child: Column(
           children: <Widget>[
@@ -266,7 +270,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    ' Edu_bot est en train de taper...',
+                    ' Sen_edu_bot est en train de taper...',
                     style:
                         TextStyle(color: const Color.fromARGB(255, 23, 7, 7)),
                   ),

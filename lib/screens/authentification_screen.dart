@@ -179,9 +179,9 @@ class AuthenticationScreen extends StatefulWidget {
 
 class _AuthenticationScreenState extends State<AuthenticationScreen> {
   final TextEditingController _emailController =
-      TextEditingController(text: 'diengdeguene87@gmail.com');
+      TextEditingController(text: '');
   final TextEditingController _passwordController =
-      TextEditingController(text: 'ibrademe');
+      TextEditingController(text: '');
 
   void _authenticate() async {
     final email = _emailController.text;
