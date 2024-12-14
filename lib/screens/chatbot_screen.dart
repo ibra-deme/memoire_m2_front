@@ -211,7 +211,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sen_edu_bot'),
+        title: Text('Discutez avec Sen_edu_bot'),
         backgroundColor: Colors.teal,
       ),
       body: Container(
@@ -271,8 +271,8 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                   alignment: Alignment.centerLeft,
                   child: Text(
                     ' Sen_edu_bot est en train de taper...',
-                    style:
-                        TextStyle(color: const Color.fromARGB(255, 23, 7, 7)),
+                    style: TextStyle(
+                        color: const Color.fromARGB(255, 13, 167, 67)),
                   ),
                 ),
               ),
